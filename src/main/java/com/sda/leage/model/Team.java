@@ -9,10 +9,19 @@ import java.util.Set;
 public class Team {
 
     private final String name;
-    private final Set<Player> players = new HashSet<>();
+    private Set<Player> players = new HashSet<>();
 
     public Team(String name) {
+        if (name == null){throw new IllegalArgumentException("Name cannot be null");}
         this.name = name;
+
+    }
+
+    public Team(String name, Set<Player> players) {
+        if (name == null){throw new IllegalArgumentException("Name cannot be null");}
+        this.name = name;
+        this.players = players;
+
     }
 
     public void addPlayer(Player player) throws PlayerAlreadyExistsException {
@@ -45,5 +54,13 @@ public class Team {
     public int hashCode() {
 
         return Objects.hash(name, players);
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "name='" + name + '\'' +
+                ", players=" + players +
+                '}';
     }
 }
