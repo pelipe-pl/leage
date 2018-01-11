@@ -31,13 +31,14 @@ public class TeamTest {
         assertThat(team.getPlayers().isEmpty());
     }
 
-//    @Test
-//    public void shouldNotAddTwoSamePlayers() throws PlayerAlreadyExistsException {
-//        Team team = new Team("The team name");
-//        Player player = new Player("Jan", "Kowalski");
-//        Player player2 = new Player("Jan", "Kowalski");
-//        team.addPlayer(player);
-//
-//        assertThatThrownBy(() -> team.addPlayer(player2)).isInstanceOf(PlayerAlreadyExistsException.class);
-//    }
+    @Test
+    public void shouldNotAddTwoSamePlayers() throws PlayerAlreadyExistsException {
+        Team team = new Team("The team name");
+        Player player = new Player("Jan", "Kowalski");
+        Player player2 = player;
+        team.addPlayer(player);
+
+        assertThatThrownBy(() -> team.addPlayer(player2)).isInstanceOf(PlayerAlreadyExistsException.class)
+                .hasMessage("Player already exists");
+    }
 }
