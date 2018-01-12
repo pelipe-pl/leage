@@ -1,5 +1,6 @@
 package com.sda.leage.model;
 
+import com.sda.leage.reader.CSVTeamReader;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,30 +14,30 @@ public class TeamLoaderTest {
     @Test
     public void shouldReadFileAndCreateTeamWithName() throws IOException {
 
-        TeamLoader teamLoader = new TeamLoader();
-        assertThat(teamLoader.read("src\\main\\resources\\Barca.txt").getName()).isEqualTo("Barca");
+        CSVTeamReader CSVTeamReader = new CSVTeamReader();
+        assertThat(CSVTeamReader.read("src\\main\\resources\\Barca.txt").getName()).isEqualTo("Barca");
     }
 
     @Test
 
     public void shouldReturnTeamPlayerReadFromFile() throws IOException {
-        TeamLoader teamLoader = new TeamLoader();
-        assertThat(teamLoader.read("src\\main\\resources\\Barca.txt")
+        CSVTeamReader CSVTeamReader = new CSVTeamReader();
+        assertThat(CSVTeamReader.read("src\\main\\resources\\Barca.txt")
                 .getPlayers()).contains(new Player("Adam", "Nowak"));
     }
 
     @Test
 
     public void shouldNotReturnTeamPlayerNotReadFromFile() throws IOException {
-        TeamLoader teamLoader = new TeamLoader();
-        assertThat(teamLoader.read("src\\main\\resources\\Barca.txt")
+        CSVTeamReader CSVTeamReader = new CSVTeamReader();
+        assertThat(CSVTeamReader.read("src\\main\\resources\\Barca.txt")
                 .getPlayers()).doesNotContain(new Player("Robert", "Lewandowski"));
     }
 
     @Test
     public void shouldThrowExceptionWhenNoFile() {
-        TeamLoader teamLoader = new TeamLoader();
-        assertThatThrownBy(() -> teamLoader.read("src\\main\\resources\\Barcaaaaaaaaaaaa.txt"))
+        CSVTeamReader CSVTeamReader = new CSVTeamReader();
+        assertThatThrownBy(() -> CSVTeamReader.read("src\\main\\resources\\Barcaaaaaaaaaaaa.txt"))
                 .isInstanceOf(IOException.class);
 
     }

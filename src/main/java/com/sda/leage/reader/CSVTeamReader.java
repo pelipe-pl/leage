@@ -1,15 +1,15 @@
-package com.sda.leage.model;
-
+package com.sda.leage.reader;
 
 import com.opencsv.CSVReader;
-
+import com.sda.leage.model.Player;
+import com.sda.leage.model.Team;
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class TeamLoader {
+public class CSVTeamReader implements TeamReader {
 
-
+    @Override
     public Team read(String filePath) throws IOException {
 
 
@@ -22,7 +22,7 @@ public class TeamLoader {
             players.add(new Player(row[0], row[1]));
         }
 
-        String teamName = file.getName().substring(0, (file.getName().length()-4));
+        String teamName = file.getName().substring(0, (file.getName().length() - 4));
 
         return new Team(teamName, players);
 
