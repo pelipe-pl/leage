@@ -7,19 +7,19 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.stream.Stream;
 
-public class LinesTeamReader extends AbstractTeamReader implements TeamReader {
+public class StreamTeamReader extends AbstractTeamReader implements TeamReader {
+
+
+    //TODO
 
     @Override
     public Team read(String filePath) throws IOException, PlayerAlreadyExistsException {
-
         File file = getFile(filePath);
         Team team = createTeam(file);
-        List<String> lines = Files.readAllLines(Paths.get(filePath));
-        for (String line : lines) {
-            team.addPlayer(lineToPlayer(line));
-        }
+        Stream<String> lines = Files.lines(Paths.get(filePath));
+
 
         return team;
     }

@@ -5,7 +5,7 @@ import com.sda.leage.model.Team;
 
 import java.io.File;
 
-public abstract class AbstractTeamLeader {
+abstract class AbstractTeamReader {
 
     protected File getFile(String path) {
         if (path == null) {

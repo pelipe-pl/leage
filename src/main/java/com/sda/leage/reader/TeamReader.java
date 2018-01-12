@@ -1,6 +1,5 @@
 package com.sda.leage.reader;
 
-
 import com.sda.leage.exceptions.PlayerAlreadyExistsException;
 import com.sda.leage.model.Team;
 

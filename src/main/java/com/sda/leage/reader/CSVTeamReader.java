@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CSVTeamReader implements TeamReader {
+public class CSVTeamReader extends AbstractTeamReader implements TeamReader {
 
     @Override
     public Team read(String filePath) throws IOException {
@@ -27,5 +27,4 @@ public class CSVTeamReader implements TeamReader {
         return new Team(teamName, players);
 
     }
-
 }
