@@ -27,6 +27,12 @@ public class Player {
         return lastName;
     }
 
+
+    public static Player fromLine(String line) {
+        String[] data = line.split(";");
+        return new Player(data[0], data[1]);
+    }
+
     @Override
     public String toString() {
         return "Player{" +

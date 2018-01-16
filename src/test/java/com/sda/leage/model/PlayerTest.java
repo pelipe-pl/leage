@@ -25,8 +25,7 @@ public class PlayerTest {
 
     @Test
     public void forEmptyFullNameThrowsException() {
-        ThrowableAssert.ThrowingCallable shpuldRaiseThroable =
-                () -> new Player(null, null);
+
         assertThatThrownBy(() -> new Player(null, null)).isInstanceOf(IllegalArgumentException.class);
     }
 

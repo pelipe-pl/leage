@@ -18,26 +18,24 @@ public class Match {
         this.hostTeam = hostTeam;
         this.guestTeam = guestTeam;
 
-//        if (this.hostScorers.containsAll(this.hostTeam.getPlayers())) {
+        if (this.hostTeam.getPlayers().containsAll(hostScorers)) {
             this.hostScorers = hostScorers;
-//        } else throw new IllegalArgumentException("The host team scorers list contains wrong player");
+        } else throw new IllegalArgumentException("The host team scorers list contains wrong player");
 
-//
-//        if (this.guestScorers.containsAll(guestTeam.getPlayers())) {
+
+        if (guestTeam.getPlayers().containsAll(guestScorers)) {
             this.guestScorers = guestScorers;
-//        } else throw new IllegalArgumentException("The guest team scorers list contains wrong player");
+        } else throw new IllegalArgumentException("The guest team scorers list contains wrong player");
 
 
         if (hostScorers.size() > guestScorers.size()) {
-            matchResult = MatchResult.HOSTS_WIN;
+            this.matchResult = MatchResult.HOSTS_WIN;
         }
-        if (hostScorers.size() < guestScorers.size()) {
-            matchResult = MatchResult.GUESTS_WIN;
+        else if (hostScorers.size() < guestScorers.size()) {
+            this.matchResult = MatchResult.GUESTS_WIN;
         } else {
-            matchResult = MatchResult.DRAW;
+            this.matchResult = MatchResult.DRAW;
         }
-
-
     }
 
     @Override
@@ -49,6 +47,26 @@ public class Match {
                 ", hostScorers=" + hostScorers +
                 ", guestScorers=" + guestScorers +
                 '}';
+    }
+
+    public Team getHostTeam() {
+        return hostTeam;
+    }
+
+    public Team getGuestTeam() {
+        return guestTeam;
+    }
+
+    public MatchResult getMatchResult() {
+        return matchResult;
+    }
+
+    public List<Player> getHostScorers() {
+        return hostScorers;
+    }
+
+    public List<Player> getGuestScorers() {
+        return guestScorers;
     }
 }
 
