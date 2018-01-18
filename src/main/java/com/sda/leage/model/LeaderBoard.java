@@ -9,10 +9,13 @@ public class LeaderBoard {
 
     private Map<Team, LeaderBoardValue> leaderBoardMap = new HashMap<>();
     private Map<Player, Scorer> scorerMap = new HashMap<>();
+    private Map<String, Team> teamsMap = new HashMap<>();
 
 
     public void addNewTeam(Team team) {
         this.leaderBoardMap.put(team, new LeaderBoardValue(team));
+        this.teamsMap.put(team.getName(), team);
+
     }
 
     public void addNewMatch(Match match) throws IllegalArgumentException {
@@ -36,12 +39,20 @@ public class LeaderBoard {
         if (match.getMatchResult() == MatchResult.HOSTS_WIN) {
             leaderBoardMap.get(match.getHostTeam()).addWin();
             leaderBoardMap.get(match.getHostTeam()).addThreePoints();
+            leaderBoardMap.get(match.getGuestTeam()).addDefeat();
         }
 
         if (match.getMatchResult() == MatchResult.GUESTS_WIN) {
             leaderBoardMap.get(match.getGuestTeam()).addWin();
             leaderBoardMap.get(match.getGuestTeam()).addThreePoints();
+            leaderBoardMap.get(match.getHostTeam()).addDefeat();
         }
+
+        leaderBoardMap.get(match.getHostTeam()).addGoals(match.getHostScorers().size());
+        leaderBoardMap.get(match.getGuestTeam()).addGoals(match.getGuestScorers().size());
+
+        leaderBoardMap.get(match.getGuestTeam()).addLostGoals(match.getHostScorers().size());
+        leaderBoardMap.get(match.getHostTeam()).addLostGoals(match.getGuestScorers().size());
     }
 
     private void updateScorersMap(Match match) {
@@ -73,7 +84,15 @@ public class LeaderBoard {
                 .collect(Collectors.toList());
     }
 
+    public Map<Team, LeaderBoardValue> getLeaderBoardMap() {
+        return leaderBoardMap;
+    }
+
     public Map<Team, LeaderBoardValue> getCurrentTableMap() {
         return leaderBoardMap;
+    }
+
+    public Map<String, Team> getTeamsMap() {
+        return teamsMap;
     }
 }

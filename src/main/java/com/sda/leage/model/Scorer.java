@@ -41,6 +41,6 @@ public class Scorer {
 
     @Override
     public String toString() {
-        return String.format("\nPlayer: %s %s, Goals: %s", player.getFirstName(), player.getLastName(), goals);
+        return String.format("\nPLAYER %s %s, GOALS: %s", player.getFirstName(), player.getLastName(), goals);
     }
 }

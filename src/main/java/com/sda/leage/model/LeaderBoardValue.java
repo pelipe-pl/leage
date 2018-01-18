@@ -7,9 +7,19 @@ public class LeaderBoardValue {
     private int defeat;
     private int draw;
     private int points;
+    private int goals;
+    private int lostGoals;
 
     LeaderBoardValue(Team team) {
         this.team = team;
+    }
+
+    public void addGoals(int goalsAmount) {
+        goals = goals + goalsAmount;
+    }
+
+    public void addLostGoals(int goalsAmount) {
+        lostGoals = lostGoals + goalsAmount;
     }
 
     public int getWins() {
@@ -54,6 +64,7 @@ public class LeaderBoardValue {
 
     @Override
     public String toString() {
-        return  String.format("\nTEAM: %s (WIN %s DEFEAT %s DRAW %s) POINTS: %s", team.getName(), wins, defeat, draw, points);
+        return String.format("\nTEAM: %s (WIN-%s DRAW-%s DEFAT-%s GOALS-%s LOSTGOALS-%s) POINTS: %s",
+                team.getName(), wins, draw, defeat, goals, lostGoals, points);
     }
 }
