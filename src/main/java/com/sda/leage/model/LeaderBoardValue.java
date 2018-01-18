@@ -8,7 +8,7 @@ public class LeaderBoardValue {
     private int draw;
     private int points;
 
-    public LeaderBoardValue(Team team) {
+    LeaderBoardValue(Team team) {
         this.team = team;
     }
 
@@ -54,12 +54,6 @@ public class LeaderBoardValue {
 
     @Override
     public String toString() {
-        return "LeaderBoardValue{" +
-                "team=" + team +
-                ", wins=" + wins +
-                ", defeat=" + defeat +
-                ", draw=" + draw +
-                ", points=" + points +
-                '}';
+        return  String.format("\nTEAM: %s (WIN %s DEFEAT %s DRAW %s) POINTS: %s", team.getName(), wins, defeat, draw, points);
     }
 }
