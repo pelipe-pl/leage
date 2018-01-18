@@ -44,5 +44,10 @@ public class App {
                 }
             }
         }
+
+        System.out.println(premierLeague.getCurrentTableByPoints());
+        System.out.println("");
+        System.out.println(premierLeague.getScorersList());
+
     }
 }
