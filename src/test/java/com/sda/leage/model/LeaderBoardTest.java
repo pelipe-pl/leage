@@ -2,6 +2,8 @@ package com.sda.leage.model;
 
 import com.sda.leage.exceptions.PlayerAlreadyExistsException;
 import com.sda.leage.reader.MatchReader;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,6 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class LeaderBoardTest {
+
+
 
     @Test
     public void shouldAddNewTeamToLeaderBoard() throws PlayerAlreadyExistsException {
@@ -69,5 +73,7 @@ public class LeaderBoardTest {
         leaderBoard.addNewMatch(match1);
 
         System.out.println(leaderBoard.getCurrentTableByPoints());
+        System.out.println("");
+        System.out.println(leaderBoard.getScorersList());
     }
 }
