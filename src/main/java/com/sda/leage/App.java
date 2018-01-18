@@ -11,17 +11,17 @@ public class App {
     public static void main(String[] args) throws IOException, PlayerAlreadyExistsException {
 
 
-        LeaderBoard premierLeague = new LeaderBoard();
+        LeaderBoard myLeage = new LeaderBoard();
         LeageDirectoryLoader leageDirectoryLoader = new LeageDirectoryLoader();
 
-        leageDirectoryLoader.loadTeamsFromDirectory(premierLeague, "src/main/resources/teams");
-        leageDirectoryLoader.loadMatchesFromDirectory(premierLeague, "src/main/resources/matches");
+        leageDirectoryLoader.loadTeamsFromDirectory(myLeage, "src/main/resources/teams");
+        leageDirectoryLoader.loadMatchesFromDirectory(myLeage, "src/main/resources/matches");
 
         System.out.println("LEAGE TABLE:");
-        System.out.println(premierLeague.getCurrentTableByPoints());
+        System.out.println(myLeage.getCurrentTableByPoints());
         System.out.println("");
         System.out.println("GOAL SCORERS TABLE:");
-        System.out.println(premierLeague.getScorersList());
+        System.out.println(myLeage.getScorersList());
         System.out.println("");
 
     }

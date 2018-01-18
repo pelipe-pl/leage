@@ -64,7 +64,7 @@ public class LeaderBoardValue {
 
     @Override
     public String toString() {
-        return String.format("\nTEAM: %s (WIN-%s DRAW-%s DEFAT-%s GOALS-%s LOSTGOALS-%s) POINTS: %s",
+        return String.format("\nTEAM: %s (WINS-%s DRAWS-%s DEFEATS-%s GOALS-%s LOSTGOALS-%s) POINTS: %s",
                 team.getName(), wins, draw, defeat, goals, lostGoals, points);
     }
 }
