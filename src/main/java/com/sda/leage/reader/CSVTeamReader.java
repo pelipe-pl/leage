@@ -16,6 +16,7 @@ public class CSVTeamReader extends AbstractTeamReader implements TeamReader {
         File file = new File(filePath);
         CSVReader csvReader = new CSVReader(new FileReader(filePath), ';');
 
+
         Set<Player> players = new HashSet<>();
 
         for (String[] row : csvReader.readAll()) {
@@ -23,7 +24,7 @@ public class CSVTeamReader extends AbstractTeamReader implements TeamReader {
         }
 
         String teamName = file.getName().substring(0, (file.getName().length() - 4));
-
+        csvReader.close();
         return new Team(teamName, players);
 
     }

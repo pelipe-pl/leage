@@ -1,3 +1,0 @@
-host:Chelsea F.C.
-guest:Arsenal F.C.
-guest-score:Mesut;Özil
