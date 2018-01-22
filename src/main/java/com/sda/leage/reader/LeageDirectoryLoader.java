@@ -29,19 +29,16 @@ public class LeageDirectoryLoader {
                         System.out.println("There was a problem loading match: " + file.getName());
                         e.printStackTrace();
 
-                        try{
+                        try {
                             Files.move(Paths.get(file.getPath()), Paths.get("src/main/resources/matches/error/"
                                     + file.getName()));
-                        }
-                        catch (IOException e1){
+                        } catch (IOException e1) {
                             System.out.println("There was a problem moving file " + file.getName() + " to 'error' folder");
                             e1.printStackTrace();
 
                         }
 
                     }
-
-
                 }
             }
         }

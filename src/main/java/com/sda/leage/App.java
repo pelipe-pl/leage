@@ -39,18 +39,13 @@ public class App {
         }, 5, 30, TimeUnit.SECONDS);
 
 
-        scheduledExecutorService.scheduleAtFixedRate(() -> {
-            try {
-                printTables(myLeage);
-            } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
-            }
-        }, 10, 10, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(() -> printTables(myLeage),
+                10, 10, TimeUnit.SECONDS);
 
 
     }
 
-    private static void printTables(LeaderBoard myLeage) throws IOException, InterruptedException {
+    private static void printTables(LeaderBoard myLeage) {
         System.out.println("LEAGE TABLE:");
         System.out.println(myLeage.getCurrentTableByPoints());
         System.out.println("");
