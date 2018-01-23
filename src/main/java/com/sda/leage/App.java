@@ -3,7 +3,6 @@ package com.sda.leage;
 import com.sda.leage.exceptions.PlayerAlreadyExistsException;
 import com.sda.leage.model.LeaderBoard;
 import com.sda.leage.reader.LeageDirectoryLoader;
-
 import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
